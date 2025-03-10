@@ -20,24 +20,3 @@ bool canPlaceFlowers(vector<int> &flowerbed, int n)
     }
     return false;
 }
-
-int main()
-{
-    int t;
-    cin >> t;
-    for (int test = 0; test < t; test++)
-    {
-        int size;
-        int n;
-        cin >> size >> n;
-        vector<int> vs(size);
-        for (int i = 0; i < size; i++)
-        {
-            cin >> vs[i];
-        }
-
-        bool result = canPlaceFlowers(vs, n);
-
-        cout << result << "\n";
-    }
-}
