@@ -10,12 +10,10 @@ struct Node
 
 int goodNodes(struct Node *root)
 {
-    if (!root)
-        return 0;
-    return goodNodesHelper(root, root->val);
+    return goodNodesHelper2(root, INT_MIN);
 }
 
-int goodNodesHelper(struct Node *root, int maxVal)
+int goodNodesHelper1(struct Node *root, int maxVal)
 {
     if (!root)
         return 0;
@@ -26,8 +24,20 @@ int goodNodesHelper(struct Node *root, int maxVal)
         maxVal = root->val;
     }
 
-    cnt += goodNodesHelper(root->left, maxVal);
-    cnt += goodNodesHelper(root->right, maxVal);
+    cnt += goodNodesHelper1(root->left, maxVal);
+    cnt += goodNodesHelper1(root->right, maxVal);
 
     return cnt;
+}
+
+int goodNodesHelper2(struct Node *root, int maxVal)
+{
+    if (!root)
+        return 0;
+    maxVal = max(root->val, maxVal);
+
+    int left = goodNodesHelper2(root->left, maxVal);
+    int right = goodNodesHelper2(root->right, maxVal);
+
+    return (root->val >= maxVal) + left + right;
 }
