@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// type defintions
+// type definations
 typedef set<int> si;
 typedef vector<int> vi;
 typedef stack<int> sti;
