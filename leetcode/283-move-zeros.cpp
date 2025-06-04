@@ -29,7 +29,7 @@ void moveZeros(vector<int> &vs)
     }
 }
 
-// T.C => O(n + x)
+// T.C => O(n)
 // S.C => O(1)
 void moveZeros2(vector<int> &vs)
 {
