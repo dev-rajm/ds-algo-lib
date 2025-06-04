@@ -22,8 +22,8 @@ vector<int> unionArr(vector<int> arr1, vector<int> arr2)
     return result;
 }
 
-// T.C =>
-// S.C =>
+// T.C => O(n+m)
+// S.C => O(n+m)
 vector<int> unionArr2(vector<int> arr1, vector<int> arr2)
 {
     vector<int> result;
