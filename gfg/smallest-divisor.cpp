@@ -22,7 +22,7 @@ int smallestDivisor(vector<int> &arr, int k)
     return d;
 }
 
-// T.C => O(x * n)
+// T.C => O(log(x) * n)
 // S.C => O(1)
 int smallestDivisor2(vector<int> &arr, int k)
 {
