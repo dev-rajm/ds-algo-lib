@@ -12,15 +12,15 @@ int minimumDeletions(string word, int k)
         freqs.push_back(cnt);
 
     int miniDel = INT_MAX;
-    for (int i = 1; i <= *max_element(freqs.begin(), freqs.end()); ++i)
+    for (int target = 1; target <= *max_element(freqs.begin(), freqs.end()); ++target)
     {
         int del = 0;
         for (int f : freqs)
         {
-            if (f < i)
+            if (f < target)
                 del += f;
-            else if (f > i + k)
-                del += f - (i + k);
+            else if (f > target + k)
+                del += f - (target + k);
         }
         miniDel = min(miniDel, del);
     }
