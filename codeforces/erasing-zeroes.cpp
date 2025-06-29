@@ -14,31 +14,19 @@ int main()
         cin >> s;
 
         int n = s.size();
-        int first = 0, last = 0;
+        int first = -1, last = -1;
+
         for (int i = 0; i < n; i++)
         {
             if (s[i] == '1')
             {
-                first = i;
-                break;
-            }
-        }
-        for (int i = n - 1; i >= 0; i--)
-        {
-            if (s[i] == '1')
-            {
+                if (first == -1)
+                    first = i;
                 last = i;
-                break;
             }
         }
 
-        int cnt = 0;
-        while (first <= last && first != last)
-        {
-            if (s[first] == '0')
-                cnt++;
-            first++;
-        }
+        int cnt = count(s.begin() + first, s.begin() + last, '0');
 
         cout << cnt << "\n";
     }
