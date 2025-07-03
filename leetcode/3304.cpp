@@ -6,6 +6,8 @@ using namespace std;
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
 
+// T.C => O(k)
+// S.C => O(k)
 char kthCharacter(int k)
 {
     string s = "a";
@@ -18,7 +20,23 @@ char kthCharacter(int k)
             s += ch;
         }
     }
+    cout << s << nline;
     return s[k - 1];
+}
+
+// T.C => O(1)
+// S.C => O(1)
+char kthCharacter1(int k)
+{
+    // Use a long string (result of k=500)
+    return ("abbcbccdbccdcddebccdcddecddedeefbccdcddecddedeefcddedeefdeefeffgbccdcddecddedeefcddedeefdeefeffgcddedeefdeefeffgdeefeffgeffgfgghbccdcddecddedeefcddedeefdeefeffgcddedeefdeefeffgdeefeffgeffgfgghcddedeefdeefeffgdeefeffgeffgfgghdeefeffgeffgfggheffgfgghfgghghhibccdcddecddedeefcddedeefdeefeffgcddedeefdeefeffgdeefeffgeffgfgghcddedeefdeefeffgdeefeffgeffgfgghdeefeffgeffgfggheffgfgghfgghghhicddedeefdeefeffgdeefeffgeffgfgghdeefeffgeffgfggheffgfgghfgghghhideefeffgeffgfggheffgfgghfgghghhieffgfgghfgghghhifgghghhighhihiijh")[k - 1];
+}
+
+// T.C => O(number of bits)
+// S.C => O(1)
+char kthCharacter2(int k)
+{
+    return (char)('a' + __builtin_popcount(k - 1));
 }
 
 int main()
@@ -32,7 +50,7 @@ int main()
     {
         int n;
         cin >> n;
-        cout << kthCharacter(n) << nline;
+        cout << kthCharacter1(n) << nline;
     }
     return 0;
 }
