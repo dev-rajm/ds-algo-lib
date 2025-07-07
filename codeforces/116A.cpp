@@ -13,24 +13,20 @@ int main()
     int n;
     cin >> n;
 
-    vector<int> ex;
-    vector<int> en;
-    int temp = n;
-    while (temp--)
+    int total = 0;
+    int cap = 0;
+
+    for (int i = 0; i < n; i++)
     {
         int a, b;
         cin >> a >> b;
-        ex.pb(a);
-        en.pb(b);
-    }
+        total -= a;
+        total += b;
 
-    int cap = 0;
-    int total = 0;
-    for (int i = 0; i < n; i++)
-    {
-        total -= ex[i];
-        total += en[i];
-        cap = max(cap, total);
+        if (total > cap)
+        {
+            cap = total;
+        }
     }
 
     cout << cap;
