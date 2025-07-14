@@ -10,19 +10,34 @@ using namespace std;
 // S.C => O(N^2)
 void rotate(vector<vector<int>> &matrix)
 {
-    vector<vector<int>> temp = matrix;
-    int n = matrix[0].size();
+    int n = matrix.size();
+    vector<vector<int>> ans(n, vector<int>(n));
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            matrix[j][i] = temp[i][j];
+            ans[j][n - i - 1] = matrix[i][j];
         }
     }
-    for (auto &rows : matrix)
+    for (int i = 0; i < n; i++)
     {
-        reverse(rows.begin(), rows.end());
+        for (int j = 0; j < n; j++)
+            matrix[i][j] = ans[i][j];
     }
+}
+
+// 
+void rotate1(vector<vector<int>> &matrix)
+{
+    int n = matrix.size();
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+            swap(matrix[i][j], matrix[j][i]);
+    }
+
+    for (auto &rows : matrix)
+        reverse(rows.begin(), rows.end());
 }
 
 int main()
@@ -43,7 +58,7 @@ int main()
                 cin >> matrix[i][j];
         }
 
-        rotate(matrix);
+        rotate1(matrix);
 
         for (int i = 0; i < n; i++)
         {
