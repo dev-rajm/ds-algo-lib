@@ -26,7 +26,8 @@ void rotate(vector<vector<int>> &matrix)
     }
 }
 
-// 
+// T.C => O(N/2 + N/2)
+// S.C => O(1)
 void rotate1(vector<vector<int>> &matrix)
 {
     int n = matrix.size();
