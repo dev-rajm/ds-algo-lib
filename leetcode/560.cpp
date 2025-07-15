@@ -62,7 +62,7 @@ int main()
         for (int &x : v)
             cin >> x;
 
-        cout << subarraySum2(v, k) << nline;
+        cout << subarraySum1(v, k) << nline;
     }
     return 0;
 }
