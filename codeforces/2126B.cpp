@@ -23,33 +23,26 @@ int main()
             cin >> x;
         }
 
-        int i = 0;
-        int hikes = 0;
-
-        while (i <= n - k)
+        int ans = 0, c = 0;
+        for (int i = 0; i < n; i++)
         {
-            bool isGood = true;
-            for (int j = 0; j < k; j++)
+            if (v[i] == 0)
             {
-                if (v[i + j] != 0)
-                {
-                    isGood = false;
-                    break;
-                }
-            }
-
-            if (isGood)
-            {
-                hikes++;
-                i += k + 1;
+                c++;
             }
             else
             {
-                i++;
+                c = 0;
+            }
+
+            if (c == k)
+            {
+                ans++;
+                c = 0;
+                i += 1;
             }
         }
-
-        cout << hikes << nline;
+        cout << ans << nline;
     }
 
     return 0;

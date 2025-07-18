@@ -6,6 +6,8 @@ using namespace std;
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
 
+// T.C => O(N*D) [D = Number of digits in x]
+// S.C => O(1)
 int main()
 {
     ios::sync_with_stdio(0);
@@ -17,19 +19,14 @@ int main()
     {
         int x;
         cin >> x;
-        int mini = x;
-        int numDigit = floor(log10(abs(x))) + 1;
-        while (numDigit--)
+        int y = 10;
+        while (x > 0)
         {
-            int lastDigit = x % 10;
-            if (lastDigit < mini)
-            {
-                mini = lastDigit;
-            }
+            y = min(y, x % 10);
             x = x / 10;
         }
 
-        cout << mini << nline;
+        cout << y << nline;
     }
 
     return 0;
