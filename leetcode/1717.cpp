@@ -27,31 +27,31 @@ int maximumGain(string s, int x, int y)
         bot_s = y;
     }
 
-    string ss = "";
+    string s1 = "";
     for (char ch : s)
     {
-        if (!ss.empty() && ch == top[1] && ss.back() == top[0])
+        if (!s1.empty() && ch == top[1] && s1.back() == top[0])
         {
             score += top_s;
-            ss.pop_back();
+            s1.pop_back();
         }
         else
         {
-            ss += ch;
+            s1 += ch;
         }
     }
 
-    string sss = "";
-    for (char ch : ss)
+    string s2 = "";
+    for (char ch : s1)
     {
-        if (!sss.empty() && ch == bot[1] && sss.back() == bot[0])
+        if (!s2.empty() && ch == bot[1] && s2.back() == bot[0])
         {
             score += bot_s;
-            sss.pop_back();
+            s2.pop_back();
         }
         else
         {
-            sss += ch;
+            s2 += ch;
         }
     }
 
