@@ -6,6 +6,35 @@ using namespace std;
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
 
+bool checkPassword(string p, string h)
+{
+    if (h.size() < p.size())
+        return false;
+
+    vector<int> freqP(26, 0);
+    vector<int> freqH(26, 0);
+
+    for (char ch : p)
+        freqP[ch - 'a']++;
+
+    // first window
+    for (int i = 0; i < p.size(); i++)
+        freqH[h[i] - 'a']++;
+
+    if (freqP == freqH)
+        return true;
+
+    for (int i = p.size(); i < h.size(); i++)
+    {
+        freqH[h[i] - 'a']++;
+        freqH[h[i - p.size()] - 'a']--;
+        if (freqH == freqP)
+            return true;
+    }
+
+    return false;
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -18,24 +47,7 @@ int main()
     {
         cin >> p >> h;
 
-        string temp_hash = h;
-        sort(all(p));
-
-        int flag = 0;
-        for (int i = 0; i < h.size(); i++)
-        {
-            string sub = temp_hash.substr(i, p.size());
-            sort(all(sub));
-            string subsort = sub;
-            if (p == sub)
-            {
-                flag = 1;
-                break;
-            }
-            sub = h;
-        }
-
-        cout << (flag == 1 ? "YES\n" : "NO\n");
+        cout << (checkPassword(p, h) ? "YES\n" : "NO\n");
     }
     return 0;
 }
