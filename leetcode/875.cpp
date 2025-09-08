@@ -65,7 +65,7 @@ int main()
             cin >> arr[i];
         }
 
-        cout << minEatingSpeed(arr, h) << nline;
+        cout << minEatingSpeed1(arr, h) << nline;
     }
     return 0;
 }
