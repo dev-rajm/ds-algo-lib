@@ -50,6 +50,27 @@ int func(int arr[], int n, int k)
     }
 }
 
+// T.C => O(log (max - min)) * O(n)
+int opFunc(int arr[], int n, int k)
+{
+    sort(arr, arr + n);
+    int low = 1, high = arr[n - 1] - arr[0];
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+        int result = canPlace(arr, n, mid, k);
+        if (result)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+    return high;
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -66,7 +87,7 @@ int main()
             cin >> arr[i];
         }
 
-        cout << func(arr, n, k) << nline;
+        cout << opFunc(arr, n, k) << nline;
     }
     return 0;
 }
