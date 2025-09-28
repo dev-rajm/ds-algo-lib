@@ -3,31 +3,11 @@ using namespace std;
 
 void solve()
 {
-    int n, k;
+    long long n, k;
     cin >> n >> k;
-    if (n == 1)
-        cout << k;
-    else if (n == k)
-        cout << 1;
-    else
-    {
-        int low = 1, high = k;
-        while (low <= high)
-        {
-            int mid = (low + high) / 2;
-            int sum = (mid * (mid + 1)) / 2;
-            if (sum % k == 0)
-            {
-                low = mid + 1;
-            }
-            else
-            {
-                high = mid - 1;
-            }
-        }
-        cout << high;
-    }
-    cout << "\n";
+    long long cf = floor((double)(n + k - 1) / (double)k);
+    long long mini = floor((double)(cf * k + n - 1) / (double)n);
+    cout << abs(mini) << "\n";
 }
 
 int32_t main()
