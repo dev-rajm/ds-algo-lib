@@ -6,23 +6,10 @@ void solve()
     long long x, y, a, b;
     cin >> x >> y >> a >> b;
 
-    if (x == 0 && y == 0)
-    {
-        cout << 0;
-    }
-    else if (x == y)
-    {
-        cout << x * b;
-    }
-    else if (x < y)
-    {
-        cout << (x * b) + (y - x) * a;
-    }
-    else
-    {
-        cout << (y * b) + (x - y) * a;
-    }
-    cout << "\n";
+    long long m1 = (x + y) * a;
+    long long m2 = min(x, y) * b + (max(x, y) - min(x, y)) * a;
+
+    cout << min(m1, m2) << "\n";
 }
 
 int32_t main()
