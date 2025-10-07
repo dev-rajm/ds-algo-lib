@@ -5,12 +5,11 @@ void solve() {
   int n;
   cin >> n;
 
-  if(n%3 == 0) {
+  n = n%3;
+  if(n==0)
     cout << "0\n";
-  }
-  else {
-    cout << ceil((double)n / (double)3) *3 - n << "\n";
-  }
+  else
+   cout << 3 - n << "\n";
 }
 
 int32_t main() {
