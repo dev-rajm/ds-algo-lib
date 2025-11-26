@@ -8,11 +8,14 @@ int smallestRepunitDivByK(int k) {
   if((k%2) == 0) {
     return -1;
   }
-  ll n=1LL;
-  while(n%k != 0) {
-    n = n*10+1LL;
+  int rem = 0;
+  for(int i=1; i<=k ; i++) {
+    rem = (i*10+1)%k;
+    if(rem == 0) {
+      return i;
+    }
   }
-  return log10(n)+1;
+  return -1;
 }
 
 int32_t main() {
