@@ -12,7 +12,8 @@ void solve() {
     cin >> a[i];
   }
   int ma = *max_element(a, a + n);
-  int b = accumulate(a, a + n, 0, [ma](int acc, int curr) { return acc += ma-curr; });
+  int b = accumulate(a, a + n, 0,
+                     [ma](int acc, int curr) { return acc += ma - curr; });
   cout << b << "\n";
 }
 
