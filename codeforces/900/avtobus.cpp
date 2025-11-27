@@ -7,12 +7,12 @@ using ld = long double;
 void solve() {
   ll n;
   cin >> n;
-  if (n & 1) {
+  if ((n % 2) == 1 || n < 4) {
     cout << "-1\n";
-  } else if ((n / 6) == 0) {
-    cout << (n / 4) << " " << (n / 4) << "\n";
   } else {
-    cout << (n + 6 -1)/6 << " " << (n + 4 - 1)/4 << "\n";
+    // max_bus = ceil(n/6)
+    // min_bus = n/4
+    cout << (n + 6 - 1) / 6 << " " << (n / 4) << "\n";
   }
 }
 
