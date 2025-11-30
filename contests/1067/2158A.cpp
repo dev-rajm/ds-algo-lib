@@ -7,23 +7,18 @@ using ld = long double;
 void solve() {
   int n, y, r;
   cin >> n >> y >> r;
-  if(y==n || r==n) {
-    cout << n << "\n";
-  }
-  else {
-    cout << min((y/2) + r, n) << "\n";
-  }
+  cout << min((y / 2) + r, n) << "\n";
 }
 
 int32_t main() {
-   ios::sync_with_stdio(false);
-   cin.tie(0);
+  ios::sync_with_stdio(false);
+  cin.tie(0);
 
-   int tc;
-   cin >> tc;
-   while(tc--) {
-       solve();
-   }
+  int tc;
+  cin >> tc;
+  while (tc--) {
+    solve();
+  }
 
-   return 0;
+  return 0;
 }
